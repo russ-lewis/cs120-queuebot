@@ -15,6 +15,8 @@ QueueBot is an IRC-like bot for Discord. It is used to facilitate online Office 
       - [Project Setup](#project-setup)
       - [Starting the Bot](#starting-the-bot)
     - [Running with Docker](#running-with-docker)
+      - [Use Prebuilt Container](#use-prebuilt-container)
+      - [Manually Build Container](#manually-build-container)
     - [Modifying the Config](#modifying-the-config)
       - [Config Options](#config-options)
       - [Example Config](#example-config)
@@ -76,7 +78,7 @@ The bot can be run like a normal command line application or within a Docker con
 5. Upgrade pip
    - `python -m pip install --upgrade pip`
 6. Install queuebot required packages
-   - `pip install -r requirements-prod.txt`
+   - `pip install -r requirements-dev.txt`
 7. Generate `config.json` by running the bot for the first time
    - `python queuebot.py`
 8. Move on to [Modifying the Config](#modifying-the-config)
@@ -87,7 +89,15 @@ Once the project is set up, you simply need to activate the python virtual envir
 
 ### Running with Docker
 
-TODO Steps to pull image from github containers
+#### Use Prebuilt Container
+
+Simply import from the github registry:
+
+```bash
+docker pull docker.pkg.github.com/benperumala/cs120-queuebot/queuebot:latest
+```
+
+#### Manually Build Container
 
 1. Ensure you have Docker installed and set up
 2. Clone this repository
@@ -112,7 +122,7 @@ TODO Steps to pull image from github containers
 | CHECK_VOICE_WAITING   | Boolean | When enabled, the bot will only allow people to join the queue when they have joined a voice channel (specified with `VOICE_WAITING` option). |
 | VOICE_WAITING         | String | Specifies which voice channel students will join while they wait for a TA to become available. Does not need to be populated if `CHECK_VOICE_WAITING` is False. |
 | ALERT_ON_FIRST_JOIN   | Boolean | Alert available TAs when somone first joins the queue (Only TAs with 0 students in the same room will be notified)  |
-| ALERTS_CHANNEL        | String | TODO description  |
+| ALERTS_CHANNEL        | String | Text channel the bot will send alerts in. Currently, `ALERT_ON_FIRST_JOIN` is the only item to create alerts.  |
 | VOICE_OFFICES         | List of Strings | Specifies the channels to search for available TAs. TAs in rooms without any students will be notified if someone enters the queue. Does not need to be specified when `ALERT_ON_FIRST_JOIN` is False. |
 
 #### Example Config
