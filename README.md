@@ -39,7 +39,7 @@ Before configuring the bot, it needs to be added to the appropriate discord serv
 
 1. Go to [Discord's developer portal](https://discord.com/developers/applications) and create a new application (top-right button).  
 ![Picture of the Developer Portal](imgs/connecting-1.jpg)
-2. Under the `General Information tab`, take a note of the Client ID as it will be used in step 5  
+2. Under the `General Information` tab, take a note of the Client ID as it will be used in step 5  
 ![](imgs/connecting-2.jpg)
 3. On the left panel, click `Add a Bot` to convert the application to a bot account  
 ![](imgs/connecting-3.jpg)
